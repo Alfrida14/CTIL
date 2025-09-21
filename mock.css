@@ -106,3 +106,40 @@ border-top: 2px solid #3b203c; /* Top border line */
     box-shadow: 0 2px 0px 0px #000;
 }
 /*incorrect answer page styles end here */
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const optionsContainer = document.querySelector('.options-container');
+    const submitButton = document.querySelector('.submit-button');
+
+    // Handle option selection and highlighting
+    optionsContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('option-button')) {
+            // Remove 'selected' class from all buttons
+            document.querySelectorAll('.option-button').forEach(button => {
+                button.classList.remove('selected');
+            });
+            // Add 'selected' class to the clicked button
+            event.target.classList.add('selected');
+        }
+    });
+
+    // Handle the submission and redirect
+    submitButton.addEventListener('click', () => {
+        const selectedOption = optionsContainer.querySelector('.option-button.selected');
+
+        if (!selectedOption) {
+            alert('Please select an answer!');
+            return;
+        }
+
+        const isCorrect = selectedOption.dataset.answer === 'correct';
+
+        if (isCorrect) {
+            window.location.href = 'correct_page_q2.html';
+        } else {
+            window.location.href = 'incorrect_page_q2.html';
+        }
+    });
+});

@@ -1,43 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const optionsContainer = document.querySelector('.options-container');
+    const options = document.querySelectorAll('.option-button');
     const submitButton = document.querySelector('.submit-button');
 
-    // Handle option selection and highlighting
-    optionsContainer.addEventListener('click', (event) => {
-        if (event.target.classList.contains('option-button')) {
-            // Remove 'selected' class from all buttons
-            document.querySelectorAll('.option-button').forEach(button => {
-                button.classList.remove('selected');
-            });
-            // Add 'selected' class to the clicked button
-            event.target.classList.add('selected');
-        }
+    if (submitButton) {
+        submitButton.addEventListener('click', () => {
+            const selectedOption = document.querySelector('.option-button.selected');
+            if (selectedOption) {
+                const answer = selectedOption.getAttribute('data-answer');
+                if (answer === 'correct') {
+                    window.location.href = 'correct_page_q1.html';
+                } else {
+                    window.location.href = 'incorrect_page_q1.html';
+                }
+            } else {
+                alert('Please select an answer!');
+            }
+        });
+    }
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+        });
     });
 
-    // Handle the submission and redirect
-    submitButton.addEventListener('click', () => {
-        const selectedOption = optionsContainer.querySelector('.option-button.selected');
-
-        if (!selectedOption) {
-            alert('Please select an answer!');
-            return;
-        }
-
-        const isCorrect = selectedOption.dataset.answer === 'correct';
-
-        if (isCorrect) {
-            window.location.href = 'correct_page_q1.html';
-        } else {
-            window.location.href = 'incorrect_page_q1.html';
-        }
-    });
-});
-document.addEventListener('DOMContentLoaded', () => {
     const nextQuestionButton = document.querySelector('.next-question-button');
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
-            window.location.href = 'question_2.html';
+            window.location.href = 'index_q2.html'; // Assuming the next question is named index_q2.html
         });
     }
 });

@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedOption) {
                 const answer = selectedOption.getAttribute('data-answer');
                 if (answer === 'correct') {
-                    window.location.href = 'correct_page_q2.html';
+                    window.location.href = 'correct_page_q6.html';
                 } else {
-                    window.location.href = 'incorrect_page_q2.html';
+                    window.location.href = 'incorrect_page_q6.html';
                 }
             } else {
                 alert('Please select an answer!');
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
-            window.location.href = 'index_q3.html'; // Assuming the next question is named index_q3.html
+            window.location.href = 'index_q7.html'; // Assuming the next question is named index_q7.html
         });
     }
 });
