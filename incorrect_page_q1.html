@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Incorrect!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="page-background">
-    <div id="incorrect-page" class="incorrect-page-content hidden">
+    <div id="incorrect-page" class="incorrect-page-content">
+        <div class="result-content-wrapper">
             <div class="result-image-container">
-                <img src="correct.png.png" alt="A cartoon owl holding a book.">
+                <img src="incorrect.png.png" alt="A sad cartoon owl.">
             </div>
-            <div class="incorrect-message">
-                <div class="oops-text">Oops! The Answer Is WRONG</div>
+            <div class="result-text-container">
+                <div class="oops-text">OH NOO! The Answer Is INCORRECT</div>
                 <div class="correct-answer-text">Correct Answer:- English</div>
+                <div class="info-box">
+                    <p>The official language of the Supreme Court and High Courts is English, as allowed by the Official Languages Act, 1963 and the Constitution of India. While Hindi is the official language of the government, English remains the language of the higher judiciary to ensure clear communication across India's diverse states.</p>
+                </div>
             </div>
+        </div>
+    
             <button class="next-question-button">NEXT QUESTION</button>
         </div>
 
     </div>
-    <script src="script.js"></script>
+    <script src="script_q1.js"></script>
 </body>
 </html>
