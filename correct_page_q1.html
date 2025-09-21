@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Correct!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div id="correct-page" class="correct-page-content hidden">
+<body class="page-background">
+
+    <div class="main-container correct-page-container">
+
+        <div class="result-content-wrapper">
             <div class="result-image-container">
                 <img src="image_6e70e9.jpg" alt="A cartoon owl giving a thumbs up.">
             </div>
-            <div class="correct-message">
-                <div class="yay-text">YAYY!! The Answer Is CORRECT</div>
-                <div class="answer-text">Correct Answer:- English</div>
+
+            <div class="result-text-container">
+                <div class="yay-text-box">
+                    <p>YAYY!! The Answer Is</p>
+                    <p>CORRECT</p>
+                </div>
+
+                <div class="correct-answer-box">
+                    <p>Correct Answer:- English</p>
+                </div>
+
+                <div class="info-box">
+                    <p>The official language of the Supreme Court and High Courts is English, as allowed by the Official Languages Act, 1963 and the Constitution of India. While Hindi is the official language of the government, English remains the language of the higher judiciary to ensure clear communication across India's diverse states.</p>
+                </div>
             </div>
-            <button class="next-question-button">NEXT QUESTION</button>
         </div>
-        <script src="script.js"></script>
+
+        <button class="next-question-button">Next Question</button>
+
+    </div>
+
 </body>
 </html>

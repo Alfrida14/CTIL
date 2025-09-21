@@ -188,3 +188,108 @@ body {
     transform: scale(1.01);
     box-shadow: 0 5px 0px 0px #7209b7;
 }
+
+
+
+/* Correct Answer Page Styles */
+.page-background {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF600; 
+}
+
+.result-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.result-image-container {
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    max-width: 300px; /* Adjust as needed */
+}
+
+.result-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.result-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.yay-text-box {
+    background-color: #34F32E;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    width: 697px;
+    height: 201px;
+}
+
+.correct-answer-box {
+    background-color: #00FFEA; 
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    width: 697px;
+    height: 66px;
+}
+
+.info-box {
+    background-color: #FF9810;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: justify;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1.5;
+    width: 697px;
+    height: 176px;
+}
+
+.next-question-button {
+    width: 300px; /* Adjust size as needed */
+    height: 60px;
+    background-color: #a52a2a; /* Brownish-red button color */
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: 3px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 0px 0px #000;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.next-question-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0px 0px #000;
+}
+
+.next-question-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0px 0px #000;
+}
