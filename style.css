@@ -412,25 +412,23 @@ body {
     max-width: 1000px;
 }
 
-/* Horizontal Layout for Image and Title */
 .intro-content {
     display: flex;
-    flex-direction: row; /* Arrange items horizontally */
-    align-items: center; /* Vertically center items */
-    justify-content: center; /* Horizontally center the content */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     position: relative;
     padding: 20px;
 }
 
-/* Left-aligned Image */
 .image-container-main {
-    position: absolute; /* Position the image absolutely */
-    left: 0; /* Place it at the far left */
+    position: absolute; 
+    left: -300px;
     top: 50%;
     transform: translateY(-50%);
-    width: 25%; /* Make the image small */
-    max-width: 200px; /* Set a maximum size */
+    width: 50%; 
+    max-width: 400px;
 }
 
 .image-container-main img {
@@ -439,34 +437,14 @@ body {
     display: block;
 }
 
-/* Centered Title Box */
-.intro-text-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex-grow: 1; /* Allows it to take up remaining space */
-}
-
-/* Background for the Title and Tagline */
-.law-text-container {
-    background-color: #000E1C; /* Dark blue background */
-    border: 3px solid #000;
-    border-radius: 10px;
-    padding: 20px;
-    color: #fff;
-    font-weight: 700;
-    max-width: 500px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .logo-image {
-    width: 80%; /* Adjust size as needed */
+    width: 120%; 
     height: auto;
     margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
 }
 
 .tagline {
@@ -475,10 +453,10 @@ body {
     margin-top: 5px;
 }
 
-/* Button Styles */
+
 .game-description-button {
     text-decoration: none;
-    background-color: #63FF72; /* Light green button color */
+    background-color: #63FF72; 
     border: 3px solid #000;
     border-radius: 10px;
     padding: 15px 30px;
