@@ -501,7 +501,6 @@ body {
 }
 
 
-/*stats page*/
 /* Stats Page Container */
 .stats-page-container {
     background-color: #fff;
@@ -612,8 +611,3 @@ body {
     transform: translateY(3px);
     box-shadow: 0 2px 0px 0px #000;
 }
-
-/*This video provides a comprehensive guide to building a quiz application, including creating the end page where the user's score is displayed.
-
-[Build Quiz App With HTML CSS & JavaScript](https://www.youtube.com/watch?v=PBcqGxrr9g8)
-http://googleusercontent.com/youtube_content/3*/
