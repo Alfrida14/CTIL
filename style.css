@@ -698,12 +698,9 @@ body {
     text-align: center;
     margin-bottom: 30px;
     margin-top: -20px;
-    /* This makes sure the element itself is centered on the page */
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
-    /* You can also use a max-width to control the line length */
     max-width: 800px;
 }
 
