@@ -14,30 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
                 let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
-                // This number must match the question number
-                const currentQuestionNumber = 7; 
+                const currentQuestionNumber = 2; // Q2
 
-                // Prevent the user from answering the same question twice
-                if (!correctAnswers.includes(currentQuestionNumber) && !incorrectAnswers.includes(currentQuestionNumber)) {
-                    if (answer === 'correct') {
-                        score += 10;
-                        correctAnswers.push(currentQuestionNumber);
-                        localStorage.setItem('score', score);
-                        localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
-                        window.location.href = 'correct_page_q7.html';
-                    } else {
-                        incorrectAnswers.push(currentQuestionNumber);
-                        localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
-                        window.location.href = 'incorrect_page_q7.html';
-                    }
+                // Update score and answers (user can submit multiple times)
+                if (answer === 'correct') {
+                    score += 10;
+                    correctAnswers.push(currentQuestionNumber);
+                    localStorage.setItem('score', score);
+                    localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
+                    window.location.href = 'correct_page_q7.html';
                 } else {
-                    alert('You have already answered this question!');
+                    incorrectAnswers.push(currentQuestionNumber);
+                    localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+                    window.location.href = 'incorrect_page_q7.html';
                 }
             } else {
                 alert('Please select an answer!');
             }
         });
 
+        // Highlight selected option
         options.forEach(option => {
             option.addEventListener('click', () => {
                 options.forEach(opt => opt.classList.remove('selected'));
@@ -48,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
-            // This is the link to the next question
             window.location.href = 'index_q8.html';
         });
     }
