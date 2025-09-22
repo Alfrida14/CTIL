@@ -1,11 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // This part should be in the script for your FIRST question (script_q1.js)
-    // if (!localStorage.getItem('score')) {
-    //     localStorage.setItem('score', 0);
-    //     localStorage.setItem('correctAnswers', JSON.stringify([]));
-    //     localStorage.setItem('incorrectAnswers', JSON.stringify([]));
-    // }
-
     const options = document.querySelectorAll('.option-button');
     const submitButton = document.querySelector('.submit-button');
     const nextQuestionButton = document.querySelector('.next-question-button');
@@ -16,21 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedOption) {
                 const answer = selectedOption.getAttribute('data-answer');
                 
-                // Get the current score and answered questions from localStorage
-                let score = parseInt(localStorage.getItem('score'));
-                let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers'));
-                let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers'));
+                // Retrieve the current score and answered questions from localStorage
+                let score = parseInt(localStorage.getItem('score')) || 0;
+                let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
+                let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
-                // This is the check for question 2
-                if (!correctAnswers.includes(2) && !incorrectAnswers.includes(2)) {
+                // The number here must match the question number
+                const currentQuestionNumber = 2; 
+
+                // Prevent the user from answering the same question twice
+                if (!correctAnswers.includes(currentQuestionNumber) && !incorrectAnswers.includes(currentQuestionNumber)) {
                     if (answer === 'correct') {
                         score += 10;
-                        correctAnswers.push(2); // Record question 2 as correct
+                        correctAnswers.push(currentQuestionNumber);
                         localStorage.setItem('score', score);
                         localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
                         window.location.href = 'correct_page_q2.html';
                     } else {
-                        incorrectAnswers.push(2); // Record question 2 as incorrect
+                        incorrectAnswers.push(currentQuestionNumber);
                         localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
                         window.location.href = 'incorrect_page_q2.html';
                     }

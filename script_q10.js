@@ -9,21 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedOption) {
                 const answer = selectedOption.getAttribute('data-answer');
                 
-                // Get the current score and answered questions from localStorage
-                let score = parseInt(localStorage.getItem('score'));
-                let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers'));
-                let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers'));
+                // Retrieve the current score and answered questions from localStorage
+                let score = parseInt(localStorage.getItem('score')) || 0;
+                let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
+                let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
-                // This is the check for question 2
-                if (!correctAnswers.includes(10) && !incorrectAnswers.includes(10)) {
+                // This number must match the question number
+                const currentQuestionNumber = 10; 
+
+                // Prevent the user from answering the same question twice
+                if (!correctAnswers.includes(currentQuestionNumber) && !incorrectAnswers.includes(currentQuestionNumber)) {
                     if (answer === 'correct') {
                         score += 10;
-                        correctAnswers.push(10); // Record question 2 as correct
+                        correctAnswers.push(currentQuestionNumber);
                         localStorage.setItem('score', score);
                         localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
                         window.location.href = 'correct_page_q10.html';
                     } else {
-                        incorrectAnswers.push(10); // Record question 2 as incorrect
+                        incorrectAnswers.push(currentQuestionNumber);
                         localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
                         window.location.href = 'incorrect_page_q10.html';
                     }
@@ -45,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
-            // This is the link to the next question
-            window.location.href ='stats_page.html';
+            // **CRITICAL CHANGE:** This will take the user to the final stats page
+            window.location.href = 'stats_page.html';
         });
     }
 });
