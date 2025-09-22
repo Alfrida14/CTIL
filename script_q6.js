@@ -1,35 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
     const options = document.querySelectorAll('.option-button');
     const submitButton = document.querySelector('.submit-button');
+    const nextQuestionButton = document.querySelector('.next-question-button');
 
     if (submitButton) {
         submitButton.addEventListener('click', () => {
             const selectedOption = document.querySelector('.option-button.selected');
             if (selectedOption) {
                 const answer = selectedOption.getAttribute('data-answer');
-                if (answer === 'correct') {
-                    window.location.href = 'correct_page_q6.html';
+                
+                // Get the current score and answered questions from localStorage
+                let score = parseInt(localStorage.getItem('score'));
+                let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers'));
+                let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers'));
+
+                // This is the check for question 2
+                if (!correctAnswers.includes(6) && !incorrectAnswers.includes(6)) {
+                    if (answer === 'correct') {
+                        score += 10;
+                        correctAnswers.push(6); // Record question 2 as correct
+                        localStorage.setItem('score', score);
+                        localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
+                        window.location.href = 'correct_page_q6.html';
+                    } else {
+                        incorrectAnswers.push(6); // Record question 2 as incorrect
+                        localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+                        window.location.href = 'incorrect_page_q6.html';
+                    }
                 } else {
-                    window.location.href = 'incorrect_page_q6.html';
+                    alert('You have already answered this question!');
                 }
             } else {
                 alert('Please select an answer!');
             }
         });
-    }
 
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            options.forEach(opt => opt.classList.remove('selected'));
-            option.classList.add('selected');
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                options.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
         });
-    });
-
-    const nextQuestionButton = document.querySelector('.next-question-button');
+    }
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
-            window.location.href = 'index_q7.html'; // Assuming the next question is named index_q7.html
+            // This is the link to the next question
+            window.location.href = 'index_q7.html';
         });
     }
 });

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-background">
+
+    <div class="main-container stats-page-container">
+        <h1>Your Results</h1>
+        <div class="score-box">
+            <p>Total Score: <span id="final-score">0</span> / 100</p>
+        </div>
+
+        <div class="answers-container">
+            <div class="answers-box correct-answers-box">
+                <h2>Correct Answers:</h2>
+                <ul id="correct-list"></ul>
+            </div>
+            <div class="answers-box incorrect-answers-box">
+                <h2>Incorrect Answers:</h2>
+                <ul id="incorrect-list"></ul>
+            </div>
+        </div>
+
+        <button class="restart-button">Restart Quiz</button>
+    </div>
+
+    <script src="stats_script.js"></script>
+</body>
+</html>
