@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
                 let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
-                const currentQuestionNumber = 2; // Q2
+                const currentQuestionNumber = 1; // Q2
 
                 // Update score and answers (user can submit multiple times)
                 if (answer === 'correct') {
