@@ -611,3 +611,132 @@ body {
     transform: translateY(3px);
     box-shadow: 0 2px 0px 0px #000;
 }
+
+/*description*/
+.owl-image-container {
+    margin-bottom: 20px;
+}
+
+.owl-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.lawq-title-box {
+    background-color: #000E1C;
+    color: #FFF600;
+    border: 5px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 10px 10px 0px #000;
+    position: relative;
+    max-width: 900px;
+    width: 90%; 
+    height: auto;
+}
+
+.lawq-title-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.lawq-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.lawq-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    display: inline-block;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Description Page Styles */
+.description-page-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fce205; 
+    box-sizing: border-box; 
+    width: 100%;
+    min-height: 100vh;
+    justify-content: flex-start; 
+}
+
+.description-heading {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #000E1C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0px;
+    margin-top: -60px;
+    font-family: Amaranth;
+}
+
+.description-heading img {
+    height: 300px;
+}
+
+.description-text {
+    font-size: 2.0rem;
+    line-height: 1.6;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: -20px;
+    /* This makes sure the element itself is centered on the page */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* You can also use a max-width to control the line length */
+    max-width: 800px;
+}
+
+.start-quiz-button {
+    text-decoration: none;
+    background-color: #4CAF50;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 15px 30px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 5px 5px 0px #000;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.start-quiz-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 7px 7px 0px #000;
+}
+
+.start-quiz-button:active {
+    transform: translateY(3px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .landing-page-container {
+        flex-direction: column;
+    }
+    .lawq-title-box {
+        margin: 20px 0;
+    }
+}
