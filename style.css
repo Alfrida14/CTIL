@@ -21,7 +21,6 @@ body {
     align-items: center;
 }
 
-/* Updated Top Navigation Bar Styles */
 .top-nav {
     width: 1495px;
     height: 16px;
@@ -39,21 +38,9 @@ body {
     cursor: pointer;
 }
 
-.right-logo {
-    width: 60px;
-    height: 60px;
-    background-color: #a52a2a;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
 .right-logo img {
-    max-width: 80%;
-    max-height: 80%;
-    filter: invert(1);
+    max-width: 40px;
+    max-height: auto;
 }
 
 .quiz-info {
