@@ -190,15 +190,15 @@ body {
 .result-content-wrapper {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
     gap: 30px;
     width: 100%;
     margin-bottom: 40px;
 }
 
 .result-image-container {
-    flex-shrink: 0; /* Prevents the image from shrinking */
-    max-width: 300px; /* Adjust as needed */
+    flex-shrink: 0; 
+    max-width: 300px;
 }
 
 .result-image-container img {
