@@ -16,17 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const currentQuestionNumber = 2; // Q2
 
-                // Update score and answers (user can submit multiple times)
-                if (answer === 'correct') {
-                    score += 10;
-                    correctAnswers.push(currentQuestionNumber);
-                    localStorage.setItem('score', score);
-                    localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
-                    window.location.href = 'correct_page_q2.html';
+                // --- CRITICAL FIX: PREVENT DOUBLE-SUBMISSION ---
+                if (!correctAnswers.includes(currentQuestionNumber) && !incorrectAnswers.includes(currentQuestionNumber)) {
+                    
+                    if (answer === 'correct') {
+                        score += 10;
+                        correctAnswers.push(currentQuestionNumber);
+                        localStorage.setItem('score', score);
+                        localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
+                        window.location.href = 'correct_page_q2.html';
+                    } else {
+                        incorrectAnswers.push(currentQuestionNumber);
+                        localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+                        window.location.href = 'incorrect_page_q2.html';
+                    }
                 } else {
-                    incorrectAnswers.push(currentQuestionNumber);
-                    localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
-                    window.location.href = 'incorrect_page_q2.html';
+                    // Alert the user if they try to submit again
+                    alert('You have already submitted an answer for this question!');
                 }
             } else {
                 alert('Please select an answer!');

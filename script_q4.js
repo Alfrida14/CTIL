@@ -14,19 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
                 let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
-                const currentQuestionNumber = 4; // Q2
+                const currentQuestionNumber = 4; // Q4
 
-                // Update score and answers (user can submit multiple times)
-                if (answer === 'correct') {
-                    score += 10;
-                    correctAnswers.push(currentQuestionNumber);
-                    localStorage.setItem('score', score);
-                    localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
-                    window.location.href = 'correct_page_q4.html';
+                // --- CRITICAL FIX: PREVENT DOUBLE-SUBMISSION ---
+                // Only update the score if this question hasn't been answered yet.
+                if (!correctAnswers.includes(currentQuestionNumber) && !incorrectAnswers.includes(currentQuestionNumber)) {
+                    
+                    if (answer === 'correct') {
+                        score += 10;
+                        correctAnswers.push(currentQuestionNumber);
+                        localStorage.setItem('score', score);
+                        localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
+                        window.location.href = 'correct_page_q4.html';
+                    } else {
+                        incorrectAnswers.push(currentQuestionNumber);
+                        localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+                        window.location.href = 'incorrect_page_q4.html';
+                    }
                 } else {
-                    incorrectAnswers.push(currentQuestionNumber);
-                    localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
-                    window.location.href = 'incorrect_page_q4.html';
+                    // Alert the user if they try to submit again
+                    alert('You have already submitted an answer for this question!');
                 }
             } else {
                 alert('Please select an answer!');
@@ -44,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
+            // This is the link to the next question
             window.location.href = 'index_q5.html';
         });
     }
