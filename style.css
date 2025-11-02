@@ -32,7 +32,7 @@ body {
     background-color: #FFFFFF; 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 15px 20px;
     margin: 0;
 }
@@ -451,9 +451,9 @@ body {
 }
 
 
-.game-description-button {
+.categories-page-button {
     text-decoration: none;
-    background-color: #63FF72; 
+    background-color: #2FE0FF; 
     border: 3px solid #000;
     border-radius: 10px;
     padding: 15px 30px;
@@ -473,6 +473,7 @@ body {
 .game-description-button:active {
     transform: translateY(3px);
     box-shadow: 0 2px 0px 0px #000;
+    font-family: Baloo Bhaijaan;
 }
 
 
@@ -711,4 +712,204 @@ body {
     .lawq-title-box {
         margin: 20px 0;
     }
+}
+
+.categories-page-body {
+    background-color: #FFF600; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box; 
+    width: 100%;
+    min-height: 100vh;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1; /* Allows links to push icon to the right */
+}
+
+.top-right-icon {
+    /* Push the small logo/icon to the far right */
+    margin-left: auto; 
+    padding-right: 10px;
+}
+
+.top-right-icon img {
+    height: 35px; /* Adjust size as needed */
+    width: auto;
+}
+
+/* Nav Link Styling (Boxes) */
+.nav-link{
+    text-decoration: none; 
+    color: #000E1C; 
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: #2FE0FF; /* Cyan box color */
+    padding: 8px 15px; 
+    border-radius: 10px; 
+ 
+    transition: all 0.1s ease-out;
+}
+
+.nav-link:hover {
+    background-color: #00FFFF; 
+    box-shadow: 3px 3px 0 0 #000;
+    transform: translate(-1px, -1px);
+}
+
+.nav-link.selected {
+    /* Optional: Style the currently active page link */
+    background-color: #27F1FF;
+    box-shadow: 3px 3px 0 0 #000;
+}
+
+/*
+=====================================================
+TWO-COLUMN LAYOUT AND HEADING
+=====================================================
+*/
+.quiz-layout-wrapper {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 900px;
+    gap: 30px; 
+    margin-bottom: 40px;
+    margin-top: 80px; /* Space below the absolute-positioned top-nav */
+}
+
+/* --- left Side: Image and Heading --- */
+.left-content-area {
+    flex-basis: 45%; 
+    flex-shrink: 0;
+    text-align: left;
+    padding-top: 0;
+}
+
+.image-container-quiz {
+    width: 100%;
+    max-width: 350px;
+}
+
+.image-container-quiz .layout-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Right Side: Category Boxes Container --- */
+.categories-box-area {
+    flex-grow: 1; 
+    flex-basis: 55%; 
+    /* Push the boxes down visually to align with the owl's center */
+    padding-top: 0; 
+}
+.categories-box-area h1 {
+    /* Style for the "Categories" heading (large text) */
+    font-size: 5rem; 
+    color: #000E1C;
+    /* Align the text to the LEFT within the right column (as seen in the image) */
+    text-align: left; 
+    
+    /* CRITICAL: Push the heading down vertically to align with the owl's head/eyes */
+    margin-top: 20px; 
+    margin-bottom: 30px; 
+    line-height: 1;
+}
+/*
+=====================================================
+CATEGORY BOX GRID
+=====================================================
+*/
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 15px; 
+}
+
+.category-item {
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 15px 10px;
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    white-space: normal;
+    font-family: 'Montserrat', sans-serif;
+    
+    background-color: #27FF4F; /* Lime Green box color */
+    color: #000E1C;
+    
+    border-radius: 8px; 
+    box-shadow: 3px 3px 0 0 #000;
+    transition: all 0.1s ease-out;
+}
+
+.category-item:hover {
+    cursor: pointer;
+    background-color: #27FF4F; 
+    
+    transform: translate(-2px, -2px);
+}
+
+/* Style for selected category */
+.category-item.selected {
+    background-color: #27F1FF; /* Distinct selection color */
+    color: #000E1C;
+    font-weight: 700;
+    
+    transform: none;
+}
+
+.sub-text {
+    font-size: 1rem;
+    font-weight: 400;
+    display: block; /* Ensures it sits on its own line */
+    font-family: poppins, sans-serif;
+}
+
+/*
+=====================================================
+START QUIZ BUTTON
+=====================================================
+*/
+.start-quiz-button {
+    width: 300px; 
+    height: 60px;
+    background-color: #27F1FF; /* Cyan button color */
+    color: #000E1C;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: 3px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    margin-left: auto; 
+    margin-right: 0;
+    display: block;
+    
+    box-shadow: 0 5px 0px 0px #000;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.start-quiz-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0px 0px #000;
+}
+
+.start-quiz-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0px 0px #000;
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <title>Law Quiz Categories</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="categories-page-body">
+
+    <header class="top-nav">
+        <nav class="nav-links">
+            <a href="starting_page.html" class="nav-link">HOME</a>
+            <a href="categories_page.html" class="nav-link selected">CATEGORY</a>
+            <a href="game_description.html" class="nav-link">GAME DESCRIPTION</a>
+        </nav>
+        <div class="top-right-icon">
+            <img src="small_logo.png" alt="Quiz Logo Icon">
+        </div>
+    </header>
+    
+    <div class="main-container start-page-content">
+        
+        <div class="quiz-layout-wrapper">
+            
+            <div class="left-content-area">
+                <div class="image-container-quiz">
+                    <img src="main.png" alt="A cartoon owl holding a law book." class="layout-image">
+                </div>
+            </div>
+            
+            <div class="categories-box-area">
+                <h1>Categories</h1>
+                <ul class="category-list">
+                    <li class="category-item" data-category="Constitutional Law">Constitutional Law</li>
+                    <li class="category-item" data-category="Consumer Protection Law">Consumer protection law</li>
+                    <li class="category-item" data-category="Traffic Laws">Traffic & Road Safety Laws</li>
+                    <li class="category-item" data-category="Environmental Laws">Environmental laws</li>
+                    <li class="category-item" data-category="Tort Law">Tort law <span class="sub-text">(Civil law)</span></li>
+                    </ul>
+            </div>
+            
+        </div>
+        
+        <button href="index_q1.html" class="start-quiz-button" disabled>START QUIZ</button>
+        
+    </div>
+    <script src="categories_script.js"></script>
+</body>
+</html>
