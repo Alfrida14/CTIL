@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body class="categories-page-body">
+    <script src="categories_script.js"></script>
 
     <header class="top-nav">
         <nav class="nav-links">
@@ -16,7 +17,7 @@
             <a href="game_description.html" class="nav-link">GAME DESCRIPTION</a>
         </nav>
         <div class="top-right-icon">
-            <img src="small_logo.png" alt="Quiz Logo Icon">
+            <img src="q.png" alt="Quiz Logo Icon">
         </div>
     </header>
     
@@ -31,20 +32,33 @@
             </div>
             
             <div class="categories-box-area">
-                <h1>Categories</h1>
-                <ul class="category-list">
-                    <li class="category-item" data-category="Constitutional Law">Constitutional Law</li>
-                    <li class="category-item" data-category="Consumer Protection Law">Consumer protection law</li>
-                    <li class="category-item" data-category="Traffic Laws">Traffic & Road Safety Laws</li>
-                    <li class="category-item" data-category="Environmental Laws">Environmental laws</li>
-                    <li class="category-item" data-category="Tort Law">Tort law <span class="sub-text">(Civil law)</span></li>
-                    </ul>
-            </div>
+    <h1>Categories</h1>
+    <ul class="categories-list">
+        
+        <li class="category-item" data-category="Constitutional Law">
+            <a href="c_index_q1.html" class="category-link">Constitutional Law</a>
+        </li>
+        
+        <li class="category-item" data-category="Consumer Protection Law">
+            <a href="co_index_q1.html" class="category-link">Consumer protection law</a>
+        </li>
+        
+        <li class="category-item" data-category="Traffic Laws">
+            <a href="quiz_traffic_laws.html" class="category-link">Traffic & Road Safety Laws</a>
+        </li>
+        
+        <li class="category-item" data-category="Environmental Laws">
+            <a href="quiz_environmental_laws.html" class="category-link">Environmental laws</a>
+        </li>
+        
+        <li class="category-item" data-category="Tort Law">
+            <a href="quiz_tort_law.html" class="category-link">Tort law <span class="sub-text">(Civil law)</span></a>
+        </li>
+        
+    </ul>
+</div>
             
         </div>
-        
-        <button href="index_q1.html" class="start-quiz-button" disabled>START QUIZ</button>
-        
     </div>
     <script src="categories_script.js"></script>
 </body>

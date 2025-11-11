@@ -1,48 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const categoryItems = document.querySelectorAll('.category-item');
-    const startQuizButton = document.querySelector('.start-quiz-button');
-    
-    // 1. Initially disable the START QUIZ button until a choice is made
-    startQuizButton.disabled = true;
+// categories_script.js
 
-    // --- Category Selection Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Selector definition
+    // Note: The selector here should be '.category-item' based on your HTML, 
+    // even though the list class is 'categories-list'.
+    const categoryItems = document.querySelectorAll('.category-item'); 
+    
+    // --- THIS IS THE CODE YOU ASKED ABOUT ---
+    // Add event listener to save the category just before the link is clicked
     categoryItems.forEach(item => {
         item.addEventListener('click', () => {
-            
-            // Remove 'selected' class from all items
-            categoryItems.forEach(i => i.classList.remove('selected'));
-            
-            // Add 'selected' class to the clicked item (visual feedback)
-            item.classList.add('selected');
-            
-            // Enable the START QUIZ button
-            startQuizButton.disabled = false;
-            
-            // Store the selected category name (e.g., "Constitutional Law")
             const selectedCategory = item.getAttribute('data-category');
+            
+            // CRITICAL: Save the category so the next page knows which quiz to load
             localStorage.setItem('quizCategory', selectedCategory);
             
-            // Optional: Provide bold text feedback on the button
-            startQuizButton.innerHTML = `START ${selectedCategory.toUpperCase()} QUIZ`; 
+            // The browser will handle navigation because the <a> tag was clicked
         });
     });
+    // ----------------------------------------
 
-    // --- Start Quiz Button Logic (Redirection) ---
-    startQuizButton.addEventListener('click', () => {
-        
-        // Final check to ensure a category is selected
-        if (localStorage.getItem('quizCategory')) {
-            
-            // 2. CRITICAL: Reset all previous score data for a fresh start
-            localStorage.setItem('score', 0);
-            localStorage.removeItem('correctAnswers');
-            localStorage.removeItem('incorrectAnswers');
-            
-            // 3. Redirection to the first question page
-            window.location.href = 'index_q1.html';
-            
-        } else {
-            alert('Please select a category to start the quiz!');
-        }
-    });
+    // Note: If you removed the separate START QUIZ button, 
+    // the code handling that button's click event is no longer needed here.
 });

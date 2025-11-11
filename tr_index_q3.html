@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <header class="top-nav">
+            <div class="menu-icon">☰</div>
+            <div class="top-right-icon">
+                <img src="q.png" alt="Quiz Logo">
+            </div>
+        </header>
+
+        <div class="quiz-info">
+            <div class="info-item">
+                <span class="info-icon">?</span>
+                <span class="info-text">03/05</span>
+            </div>
+            <div class="quiz-title">QUESTION 3</div>
+        </div>
+        
+        <h2 class="question">If you’re driving and your friend (the passenger) isn’t wearing a seatbelt, who can be fined?</h2>
+
+        <div class="options-container">
+    <div class="option-button pink" data-answer="incorrect">Only the passenger</div>
+    <div class="option-button green" data-answer="incorrect">Only the driver</div>
+    <div class="option-button yellow" data-answer="correct">Both driver and passenger</div>
+    <div class="option-button blue" data-answer="incorrect">No one if it’s a short trip</div>
+</div>
+
+        <button class="submit-button">SUBMIT ANSWER</button>
+
+    </div>
+    <script src="script_q3.js"></script>
+
+</body>
+</html>

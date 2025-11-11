@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         correctAnswers.push(currentQuestionNumber);
                         localStorage.setItem('score', score);
                         localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
-                        window.location.href = 'correct_page_q3.html';
+                        window.location.href = 'c_correct_q3.html';
                     } else {
                         incorrectAnswers.push(currentQuestionNumber);
                         localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
-                        window.location.href = 'incorrect_page_q3.html';
+                        window.location.href = 'c_incorrect_q3.html';
                     }
                 } else {
                     // Alert the user if they try to submit again
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
             // This is the link to the next question
-            window.location.href = 'index_q4.html';
+            window.location.href = 'c_index_q4.html';
         });
     }
 });
