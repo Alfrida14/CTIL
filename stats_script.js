@@ -7,11 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper function to handle display logic (Correctly handles stored index 0 by displaying 1)
     const appendAnswerToList = (listElement, qNum) => {
-        // CRITICAL FIX: If the stored number is 0 (zero-index), display it as 1.
-        // This is necessary because your quiz script is likely saving 0 for Q1.
+        
         const displayNum = (qNum === 0 ? 1 : qNum); 
         
-        // Ensure we only process valid question numbers (1 and above)
+        
         if (displayNum >= 1) { 
             const li = document.createElement('li');
             li.textContent = `Question ${displayNum}`;
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('incorrectAnswers');
 
             // Go back to first question
-            window.location.href = 'index_q1.html';
+            window.location.href = 'categories_page.html';
         });
     }
 });
