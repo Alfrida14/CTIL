@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Helper function to extract the question number from the URL
+    const getCurrentQuestionNumber = () => {
+        const url = window.location.href;
+        // Search for 'q' followed by one or more digits
+        const match = url.match(/q(\d+)\.html/);
+        // Returns the number (e.g., 1, 2, 3...) or defaults to 1 if no number is found
+        return match ? parseInt(match[1]) : 1; 
+    };
+
+    // Helper function to get the category prefix (e.g., 'c_', 'co_')
+    const getCategoryPrefix = () => {
+        const url = window.location.pathname;
+        
+        // This regex looks for 'something' followed by '_index', '_correct', or '_incorrect'
+        const match = url.match(/(\w+)_(index|correct|incorrect)/); 
+        
+        if (match && match[1]) {
+            return match[1] + '_';
+        }
+        
+        return '';
+    };
+
+    // --- Dynamic Variables Retrieval ---
+    const categoryPrefix = getCategoryPrefix();
+    const currentQuestionNumber = getCurrentQuestionNumber(); // Now dynamic!
+    const totalQuestions = 5; // Total questions for sequence tracking
+    
     const options = document.querySelectorAll('.option-button');
     const submitButton = document.querySelector('.submit-button');
     const nextQuestionButton = document.querySelector('.next-question-button');
@@ -14,8 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
                 let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
-                const currentQuestionNumber = 2; // Q2
-
                 // --- CRITICAL FIX: PREVENT DOUBLE-SUBMISSION ---
                 if (!correctAnswers.includes(currentQuestionNumber) && !incorrectAnswers.includes(currentQuestionNumber)) {
                     
@@ -24,11 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         correctAnswers.push(currentQuestionNumber);
                         localStorage.setItem('score', score);
                         localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
-                        window.location.href = 'c_correct_q2.html';
+                        
+                        // FIX: Dynamic prefix used here
+                        window.location.href = `${categoryPrefix}correct_q${currentQuestionNumber}.html`;
                     } else {
                         incorrectAnswers.push(currentQuestionNumber);
                         localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
-                        window.location.href = 'c_incorrect_q2.html';
+                        
+                        // FIX: Dynamic prefix used here
+                        window.location.href = `${categoryPrefix}incorrect_q${currentQuestionNumber}.html`;
                     }
                 } else {
                     // Alert the user if they try to submit again
@@ -50,7 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
-            window.location.href = 'c_index_q3.html';
+            const nextQuestionNumber = currentQuestionNumber + 1;
+            
+            if (nextQuestionNumber > totalQuestions) {
+                window.location.href = 'stats_page.html'; // Go to stats after last question
+            } else {
+                // FIX: Dynamic prefix used here for the next question's page
+                window.location.href = `${categoryPrefix}index_q${nextQuestionNumber}.html`;
+            }
         });
     }
 });
