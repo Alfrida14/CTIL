@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Helper function to extract the question number from the URL
+    const getCurrentQuestionNumber = () => {
+        const url = window.location.href;
+        // Search for 'q' followed by one or more digits
+        const match = url.match(/q(\d+)\.html/);
+        // Returns the number (e.g., 1, 2, 3...) or defaults to 1 if no number is found
+        return match ? parseInt(match[1]) : 1; 
+    };
+
+    // Helper function to get the category prefix (e.g., 'c_', 'co_')
+    const getCategoryPrefix = () => {
+        const url = window.location.pathname;
+        
+        // This regex looks for 'something' followed by '_index', '_correct', or '_incorrect'
+        const match = url.match(/(\w+)_(index|correct|incorrect)/); 
+        
+        if (match && match[1]) {
+            return match[1] + '_';
+        }
+        
+        return '';
+    };
+
+    // --- Dynamic Variables Retrieval ---
+    const categoryPrefix = getCategoryPrefix();
+    const currentQuestionNumber = getCurrentQuestionNumber(); 
+    const totalQuestions = 5; // The script will check against this number
+    
     const options = document.querySelectorAll('.option-button');
     const submitButton = document.querySelector('.submit-button');
     const nextQuestionButton = document.querySelector('.next-question-button');
@@ -14,10 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
                 let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
-                const currentQuestionNumber = 5; // Q5
-
                 // --- CRITICAL FIX: PREVENT DOUBLE-SUBMISSION ---
-                // Only update the score if this question hasn't been answered yet.
                 if (!correctAnswers.includes(currentQuestionNumber) && !incorrectAnswers.includes(currentQuestionNumber)) {
                     
                     if (answer === 'correct') {
@@ -25,11 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         correctAnswers.push(currentQuestionNumber);
                         localStorage.setItem('score', score);
                         localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
-                        window.location.href = 'c_correct_q5.html';
+                        
+                        // Navigate to the correct feedback page dynamically
+                        window.location.href = `${categoryPrefix}correct_q${currentQuestionNumber}.html`;
                     } else {
                         incorrectAnswers.push(currentQuestionNumber);
                         localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
-                        window.location.href = 'c_incorrect_q5.html';
+                        
+                        // Navigate to the incorrect feedback page dynamically
+                        window.location.href = `${categoryPrefix}incorrect_q${currentQuestionNumber}.html`;
                     }
                 } else {
                     // Alert the user if they try to submit again
@@ -51,8 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextQuestionButton) {
         nextQuestionButton.addEventListener('click', () => {
-            // This is the link to the next question
-            window.location.href = 'stats_page.html';
+            const nextQuestionNumber = currentQuestionNumber + 1;
+            
+            // This is the final question check!
+            if (nextQuestionNumber > totalQuestions) {
+                // Redirects to the final stats page
+                window.location.href = 'stats_page.html'; 
+            } else {
+                // If this somehow runs on Q5, it would redirect to Q6 (which should not happen)
+                window.location.href = `${categoryPrefix}index_q${nextQuestionNumber}.html`;
+            }
         });
     }
 });
